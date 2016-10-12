@@ -1,0 +1,41 @@
+server {
+	listen 80;
+	listen [::]:80;
+	listen 443 ssl spdy;
+	listen [::]:443 ssl spdy;
+
+	root /var/www/html;
+
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name genetique.info;
+
+	ssl_certificate     /etc/letsencrypt/live/genetique.info/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/genetique.info/privkey.pem;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+}
+
+server {
+	listen 80;
+	listen [::]:80;
+	listen 443 ssl spdy;
+	listen [::]:443 ssl spdy;
+
+	root /var/www/html;
+
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name www.genetique.info;
+
+	ssl_certificate     /etc/letsencrypt/live/genetique.info/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/genetique.info/privkey.pem;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+}
