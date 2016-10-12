@@ -1,6 +1,16 @@
 server {
 	listen 80;
 	listen [::]:80;
+
+	server_name questions.genetique.info;
+
+	location / {
+	        add_header Strict-Transport-Security max-age=15768000;
+		return 301 https://$host$request_uri;
+	}
+}
+
+server {
 	listen 443 ssl spdy;
 	listen [::]:443 ssl spdy;
 
@@ -14,6 +24,7 @@ server {
 	ssl_certificate_key /etc/letsencrypt/live/genetique.info/privkey.pem;
 
 	location / {
+	        add_header Strict-Transport-Security max-age=15768000;
 	        proxy_pass http://localhost:8080;
 		proxy_set_header Host $host;
 		proxy_set_header X-Real-IP $remote_addr;
