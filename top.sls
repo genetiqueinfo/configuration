@@ -5,6 +5,7 @@ base:
     - mail
     - network
     - python
+    - security
     - sources
     - system
     - term
