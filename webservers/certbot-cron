@@ -1,0 +1,5 @@
+#!/bin/sh
+
+service nginx stop
+/usr/bin/certbot renew
+service nginx start

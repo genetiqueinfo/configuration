@@ -21,7 +21,7 @@ nginx:
     - require:
       - pkg: webservers.pkgs
 
-/etc/nginx/site-enabled/default:
+/etc/nginx/sites-enabled/default:
   file:
     - absent
 
@@ -57,3 +57,11 @@ nginx:
     - source: salt://webservers/www
     - user: root
     - mode: 644
+
+/etc/cron.daily/certbot:
+  file.managed:
+    - source: salt://webservers/certbot-cron
+    - mode: 755
+
+# TODO
+# generate and install nginx letsencrypt certificate
