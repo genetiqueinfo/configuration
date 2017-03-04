@@ -2,6 +2,7 @@ base:
   '*':
     - backup
     - editors
+    - mail
     - network
     - python
     - sources
