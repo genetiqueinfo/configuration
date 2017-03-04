@@ -1,23 +1,3 @@
-asdp:
-  user.present:
-    - home: /home/asdp
-    - uid: 1201
-    - gid: 1201
-    - remove_groups: False
-    - makedirs: True
-    - require:
-      - group: asdp
-  group.present:
-    - gid: 1201
-
-/home/asdp/.ssh/authorized_keys:
-  file.managed:
-    - source: salt://users/authorized_keys_asdp
-    - user: asdp
-    - mode: 644
-    - require:
-      - user: asdp
-
 arkanosis:
   user.present:
     - home: /home/arkanosis
@@ -39,6 +19,26 @@ arkanosis:
     - makedirs: True
     - require:
       - user: arkanosis
+
+asdp:
+  user.present:
+    - home: /home/asdp
+    - uid: 1401
+    - gid: 1401
+    - remove_groups: False
+    - makedirs: True
+    - require:
+      - group: asdp
+  group.present:
+    - gid: 1401
+
+/home/asdp/.ssh/authorized_keys:
+  file.managed:
+    - source: salt://users/authorized_keys_asdp
+    - user: asdp
+    - mode: 644
+    - require:
+      - user: asdp
 
 /root/.ssh/authorized_keys:
   file.managed:
