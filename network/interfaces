@@ -1,0 +1,20 @@
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+        address 46.105.29.90
+        netmask 255.255.255.255
+        post-up /sbin/ip route add 46.105.29.1 dev eth0
+        post-up /sbin/ip route add default via 46.105.29.1
+        pre-down /sbin/ip route del default via 46.105.29.1
+        pre-down /sbin/ip route del 46.105.29.1 dev eth0
+        dns-nameserver 213.186.33.99
+        dns-search ovh.net
+iface eth0 inet6 static
+        address 2001:41d0:401:3100::2ced
+        netmask 128
+        post-up /sbin/ip -6 route add 2001:41d0:401:3100::1 dev eth0
+        post-up /sbin/ip -6 route add default via 2001:41d0:401:3100::1 dev eth0
+        pre-down /sbin/ip -6 route del default via 2001:41d0:401:3100::1 dev eth0
+        pre-down /sbin/ip -6 route del 2001:41d0:401:3100::1 dev eth0
