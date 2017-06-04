@@ -4,6 +4,7 @@ include:
 webservers.pkgs:
   pkg.installed:
     - pkgs:
+      - goaccess
       - nginx
       - nginx-extras
 
