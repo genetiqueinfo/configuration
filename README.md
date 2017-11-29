@@ -8,7 +8,7 @@ mkdir -p /srv
 git clone https://github.com/genetiqueinfo/configuration.git /srv/salt
 apt update
 salt-call --local state.highstate
-apt ugrade
+apt upgrade
 reboot now
 ```
 
