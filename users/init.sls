@@ -67,7 +67,6 @@ asdp:
     - uid: 1401
     - gid: 1401
     - remove_groups: False
-    - makedirs: True
     - require:
       - group: asdp
       - pkg: term.pkgs
@@ -79,6 +78,7 @@ asdp:
     - source: salt://users/authorized_keys_asdp
     - user: asdp
     - mode: 644
+    - makedirs: True
     - require:
       - user: asdp
 
