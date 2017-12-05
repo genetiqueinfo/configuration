@@ -29,9 +29,9 @@ portsentry:
     - source: salt://security/logwatch-cron
     - mode: 755
 
-/etc/fail2ban/jail.conf:
+/etc/fail2ban/jail.local:
   file.managed:
-    - source: salt://security/fail2ban-jail.conf
+    - source: salt://security/fail2ban-jail.local
     - mode: 644
 
 /etc/portsentry/portsentry.conf:
