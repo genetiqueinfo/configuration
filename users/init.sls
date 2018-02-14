@@ -9,6 +9,26 @@ root:
       - pkg: term.pkgs
       - pkg: vcs.pkgs
 
+rssht-user:
+  user.present:
+    - shell: /bin/bash
+    - uid: 1001
+    - gid: 1001
+    - remove_groups: False
+    - require:
+      - group: rssht-user
+  group.present:
+    - gid: 1001
+
+/home/rssht-user/.ssh/authorized_keys:
+  file.managed:
+    - source: salt://users/authorized_keys_rssht-user
+    - user: rssht-user
+    - mode: 644
+    - makedirs: True
+    - require:
+      - user: rssht-user
+
 arkonf:
   git.latest:
     - name: "https://github.com/Arkanosis/Arkonf.git"
