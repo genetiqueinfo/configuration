@@ -1,7 +1,7 @@
 mail.pkgs:
   pkg.installed:
     - pkgs:
-      - heirloom-mailx
+      - s-nail
       - ssmtp
 
 /etc/ssmtp/ssmtp.conf:
