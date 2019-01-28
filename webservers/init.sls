@@ -12,7 +12,7 @@ webservers.pkgs.extras:
   pkg.installed:
     - pkgs:
       - certbot
-    - fromrepo: jessie-backports
+    - fromrepo: stretch-backports
 
 nginx:
   service.running:
